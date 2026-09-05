@@ -348,9 +348,9 @@ section{
     aspect-ratio:1;
     border-radius:30px;
     border:1px solid var(--border);
-    background:
-        radial-gradient(circle at 50% 35%,rgba(77,163,255,.35),transparent 20%),
-        linear-gradient(145deg,#101d32,#060a12);
+    background-image:url("assets/images/profile.jpeg");
+    background-size:cover;
+    background-position:center;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -359,10 +359,7 @@ section{
 }
 
 .profile-photo::after{
-    content:"YOUR PHOTO";
-    color:rgba(255,255,255,.2);
-    font-size:13px;
-    letter-spacing:3px;
+    content:"";
 }
 
 .profile-ring{
