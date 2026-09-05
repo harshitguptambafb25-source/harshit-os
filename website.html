@@ -1,0 +1,2239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Harshit OS — Beyond the Resume</title>
+<meta name="description" content="Harshit Kumar Gupta — Finance, Business, Analytics & Technology">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#050810;
+    --bg2:#09101d;
+    --card:rgba(13,22,38,.72);
+    --card2:rgba(16,27,46,.9);
+    --blue:#4da3ff;
+    --blue2:#1677ff;
+    --gold:#d8b15a;
+    --white:#f4f7fb;
+    --muted:#8995a8;
+    --border:rgba(255,255,255,.09);
+    --success:#43d39e;
+    --radius:22px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Inter,sans-serif;
+    background:
+        radial-gradient(circle at 80% 10%,rgba(22,119,255,.13),transparent 25%),
+        radial-gradient(circle at 10% 40%,rgba(216,177,90,.06),transparent 22%),
+        var(--bg);
+    color:var(--white);
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.22;
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:50px 50px;
+    mask-image:linear-gradient(to bottom,black,transparent 90%);
+    z-index:-1;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button{
+    font:inherit;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+section{
+    padding:120px 0;
+    position:relative;
+}
+
+.section-label{
+    color:var(--blue);
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:16px;
+}
+
+.section-title{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:clamp(36px,5vw,68px);
+    line-height:1;
+    margin-bottom:24px;
+}
+
+.section-subtitle{
+    color:var(--muted);
+    max-width:650px;
+    line-height:1.8;
+}
+
+/* NAV */
+
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    padding:18px 0;
+    background:rgba(5,8,16,.7);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid transparent;
+    transition:.3s;
+}
+
+.navbar.scrolled{
+    border-color:var(--border);
+}
+
+.nav-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-family:"Space Grotesk";
+    font-weight:700;
+    font-size:20px;
+}
+
+.logo span{
+    color:var(--blue);
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+    font-size:13px;
+    color:#aab5c5;
+}
+
+.nav-links a{
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+.menu-btn{
+    display:none;
+    background:none;
+    border:0;
+    color:white;
+    font-size:25px;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:100px;
+    overflow:hidden;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.status{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    border:1px solid var(--border);
+    padding:8px 13px;
+    border-radius:100px;
+    color:#aeb9ca;
+    background:rgba(255,255,255,.025);
+    font-size:12px;
+    margin-bottom:30px;
+}
+
+.status-dot{
+    width:7px;
+    height:7px;
+    background:var(--success);
+    border-radius:50%;
+    box-shadow:0 0 12px var(--success);
+}
+
+.hero h1{
+    font-family:"Space Grotesk";
+    font-size:clamp(70px,13vw,165px);
+    letter-spacing:-8px;
+    line-height:.82;
+    margin-bottom:35px;
+}
+
+.hero h1 span{
+    color:transparent;
+    -webkit-text-stroke:1px rgba(255,255,255,.35);
+}
+
+.hero-tagline{
+    font-size:clamp(20px,3vw,32px);
+    line-height:1.35;
+    max-width:720px;
+}
+
+.hero-tagline strong{
+    color:var(--blue);
+}
+
+.hero-buttons{
+    display:flex;
+    gap:14px;
+    margin-top:35px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:14px 21px;
+    border-radius:12px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.035);
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+    font-weight:600;
+    font-size:13px;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    border-color:rgba(77,163,255,.5);
+}
+
+.btn-primary{
+    background:var(--blue2);
+    border-color:var(--blue2);
+}
+
+.hero-data{
+    display:flex;
+    gap:35px;
+    margin-top:65px;
+    flex-wrap:wrap;
+}
+
+.data-item{
+    border-left:1px solid var(--border);
+    padding-left:15px;
+}
+
+.data-item small{
+    display:block;
+    color:var(--muted);
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    margin-bottom:5px;
+}
+
+.data-item strong{
+    font-size:14px;
+}
+
+/* FLOATING GRAPH */
+
+.network{
+    position:absolute;
+    width:600px;
+    height:600px;
+    right:-130px;
+    top:50%;
+    transform:translateY(-50%);
+    opacity:.55;
+}
+
+.node{
+    position:absolute;
+    width:11px;
+    height:11px;
+    border-radius:50%;
+    background:var(--blue);
+    box-shadow:0 0 25px var(--blue);
+    animation:float 4s infinite ease-in-out;
+}
+
+.node:nth-child(1){left:45%;top:20%}
+.node:nth-child(2){left:70%;top:40%;animation-delay:.7s}
+.node:nth-child(3){left:35%;top:55%;animation-delay:1.2s}
+.node:nth-child(4){left:78%;top:72%;animation-delay:1.8s}
+.node:nth-child(5){left:18%;top:35%;animation-delay:2.2s}
+.node:nth-child(6){left:53%;top:78%;animation-delay:2.7s}
+
+.line{
+    position:absolute;
+    height:1px;
+    background:linear-gradient(90deg,transparent,var(--blue),transparent);
+    transform-origin:left;
+    opacity:.35;
+}
+
+.line1{width:280px;left:45%;top:20%;transform:rotate(28deg)}
+.line2{width:240px;left:35%;top:55%;transform:rotate(-32deg)}
+.line3{width:250px;left:53%;top:78%;transform:rotate(-66deg)}
+.line4{width:230px;left:18%;top:35%;transform:rotate(-15deg)}
+
+@keyframes float{
+    50%{transform:translateY(-15px)}
+}
+
+/* CARDS */
+
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:30px;
+    backdrop-filter:blur(14px);
+    transition:.35s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(77,163,255,.3);
+    box-shadow:0 20px 60px rgba(0,0,0,.25);
+}
+
+/* IDENTITY */
+
+.identity{
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:70px;
+    align-items:center;
+}
+
+.profile-photo{
+    aspect-ratio:1;
+    border-radius:30px;
+    border:1px solid var(--border);
+    background:
+        radial-gradient(circle at 50% 35%,rgba(77,163,255,.35),transparent 20%),
+        linear-gradient(145deg,#101d32,#060a12);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.profile-photo::after{
+    content:"YOUR PHOTO";
+    color:rgba(255,255,255,.2);
+    font-size:13px;
+    letter-spacing:3px;
+}
+
+.profile-ring{
+    position:absolute;
+    inset:12%;
+    border:1px solid rgba(77,163,255,.25);
+    border-radius:50%;
+    animation:spin 18s linear infinite;
+}
+
+.profile-ring::after{
+    content:"";
+    position:absolute;
+    width:8px;
+    height:8px;
+    background:var(--gold);
+    border-radius:50%;
+    top:5%;
+    left:50%;
+    box-shadow:0 0 15px var(--gold);
+}
+
+@keyframes spin{
+    to{transform:rotate(360deg)}
+}
+
+.identity-text p{
+    color:var(--muted);
+    line-height:1.9;
+    font-size:16px;
+}
+
+.identity-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:25px;
+}
+
+.tag{
+    padding:8px 12px;
+    border:1px solid var(--border);
+    border-radius:100px;
+    color:#b9c4d4;
+    font-size:11px;
+}
+
+/* DNA */
+
+.dna{
+    margin-top:60px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.dna-card{
+    min-height:190px;
+    cursor:pointer;
+}
+
+.dna-card h3{
+    font-family:"Space Grotesk";
+    font-size:25px;
+    margin-bottom:15px;
+}
+
+.dna-card p{
+    color:var(--muted);
+    line-height:1.7;
+    font-size:13px;
+}
+
+.dna-card .icon{
+    font-size:26px;
+    margin-bottom:20px;
+}
+
+/* TIMELINE */
+
+.timeline{
+    margin-top:65px;
+    position:relative;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    top:50%;
+    height:1px;
+    background:linear-gradient(90deg,transparent,var(--blue),transparent);
+}
+
+.timeline-items{
+    display:flex;
+    justify-content:space-between;
+    position:relative;
+}
+
+.timeline-item{
+    width:18%;
+}
+
+.timeline-dot{
+    width:14px;
+    height:14px;
+    background:var(--blue);
+    border-radius:50%;
+    box-shadow:0 0 20px var(--blue);
+    margin:calc(50% - 7px) auto 25px;
+    position:relative;
+    z-index:2;
+}
+
+.timeline-item h3{
+    color:var(--blue);
+    font-size:14px;
+    margin-bottom:9px;
+}
+
+.timeline-item p{
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.6;
+}
+
+/* WORK */
+
+.work-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:60px;
+}
+
+.work-card{
+    min-height:230px;
+}
+
+.work-card h3{
+    font-family:"Space Grotesk";
+    font-size:26px;
+    margin:15px 0;
+}
+
+.work-card p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.7;
+}
+
+.work-icon{
+    font-size:30px;
+}
+
+/* CRM */
+
+.crm{
+    margin-top:70px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
+}
+
+.crm-preview{
+    border:1px solid var(--border);
+    background:#070c15;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 30px 100px rgba(0,0,0,.4);
+}
+
+.crm-top{
+    height:48px;
+    border-bottom:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    padding:0 15px;
+    gap:7px;
+}
+
+.crm-dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#526176;
+}
+
+.crm-body{
+    display:grid;
+    grid-template-columns:130px 1fr;
+    min-height:360px;
+}
+
+.crm-sidebar{
+    border-right:1px solid var(--border);
+    padding:15px 10px;
+}
+
+.crm-sidebar div{
+    padding:9px;
+    color:#6f7d92;
+    font-size:9px;
+}
+
+.crm-sidebar div:first-child{
+    color:var(--blue);
+}
+
+.crm-main{
+    padding:20px;
+}
+
+.crm-title{
+    font-family:"Space Grotesk";
+    margin-bottom:20px;
+}
+
+.kpi-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+}
+
+.kpi{
+    border:1px solid var(--border);
+    padding:13px;
+    border-radius:10px;
+}
+
+.kpi small{
+    color:#68758a;
+    font-size:8px;
+}
+
+.kpi strong{
+    display:block;
+    margin-top:7px;
+    font-size:18px;
+}
+
+.chart{
+    height:130px;
+    margin-top:15px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    position:relative;
+    overflow:hidden;
+}
+
+.chart svg{
+    width:100%;
+    height:100%;
+}
+
+/* NUMBERS */
+
+.numbers-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:60px;
+}
+
+.number-card strong{
+    font-family:"Space Grotesk";
+    display:block;
+    font-size:50px;
+    color:var(--blue);
+}
+
+.number-card span{
+    color:var(--muted);
+    text-transform:uppercase;
+    font-size:10px;
+    letter-spacing:2px;
+}
+
+/* RADAR */
+
+.radar-wrap{
+    margin-top:60px;
+    display:flex;
+    justify-content:center;
+}
+
+.radar{
+    width:min(600px,90vw);
+    aspect-ratio:1;
+    border-radius:50%;
+    border:1px solid rgba(77,163,255,.2);
+    position:relative;
+    background:
+        radial-gradient(circle,transparent 24%,rgba(77,163,255,.035) 25%,transparent 26%),
+        radial-gradient(circle,transparent 49%,rgba(77,163,255,.035) 50%,transparent 51%);
+}
+
+.radar::before,
+.radar::after{
+    content:"";
+    position:absolute;
+    background:rgba(77,163,255,.12);
+}
+
+.radar::before{
+    width:1px;
+    top:0;
+    bottom:0;
+    left:50%;
+}
+
+.radar::after{
+    height:1px;
+    left:0;
+    right:0;
+    top:50%;
+}
+
+.radar-sweep{
+    position:absolute;
+    inset:0;
+    border-radius:50%;
+    background:conic-gradient(from 0deg,transparent 0deg,rgba(77,163,255,.16) 20deg,transparent 50deg);
+    animation:radar 5s linear infinite;
+}
+
+@keyframes radar{
+    to{transform:rotate(360deg)}
+}
+
+.radar-node{
+    position:absolute;
+    padding:9px 12px;
+    background:var(--card2);
+    border:1px solid var(--border);
+    border-radius:100px;
+    font-size:10px;
+    color:#c7d2e1;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.radar-node:hover{
+    color:white;
+    border-color:var(--blue);
+    transform:scale(1.08);
+}
+
+.r1{top:15%;left:45%}
+.r2{top:28%;right:8%}
+.r3{top:48%;left:5%}
+.r4{bottom:25%;left:20%}
+.r5{bottom:12%;right:23%}
+.r6{top:60%;right:4%}
+.r7{top:42%;left:40%}
+
+/* LEARNING */
+
+.learning{
+    margin-top:60px;
+    display:grid;
+    gap:14px;
+}
+
+.learning-row{
+    padding:20px;
+    border:1px solid var(--border);
+    border-radius:15px;
+    background:rgba(255,255,255,.02);
+}
+
+.learning-top{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:12px;
+    font-size:13px;
+}
+
+.learning-top span:last-child{
+    color:var(--blue);
+}
+
+.progress{
+    height:4px;
+    background:#182131;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.progress span{
+    display:block;
+    height:100%;
+    background:linear-gradient(90deg,var(--blue2),var(--blue));
+    width:0;
+    transition:1.5s ease;
+}
+
+/* PROJECTS */
+
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:60px;
+}
+
+.project-card{
+    min-height:270px;
+}
+
+.project-card h3{
+    font-family:"Space Grotesk";
+    font-size:25px;
+    margin:14px 0;
+}
+
+.project-card p{
+    color:var(--muted);
+    line-height:1.7;
+    font-size:13px;
+}
+
+.project-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin-top:20px;
+}
+
+.project-tags span{
+    font-size:9px;
+    border:1px solid var(--border);
+    padding:6px 8px;
+    border-radius:6px;
+}
+
+/* GALLERY */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    margin-top:60px;
+}
+
+.gallery-item{
+    height:230px;
+    border:1px solid var(--border);
+    border-radius:16px;
+    background:
+        linear-gradient(145deg,rgba(77,163,255,.13),rgba(216,177,90,.04)),
+        #0a101b;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#4d596b;
+    font-size:10px;
+    letter-spacing:2px;
+    transition:.3s;
+}
+
+.gallery-item:nth-child(2){
+    height:300px;
+}
+
+.gallery-item:nth-child(3){
+    height:180px;
+}
+
+.gallery-item:hover{
+    transform:scale(.98);
+    border-color:rgba(77,163,255,.3);
+}
+
+/* ROADMAP */
+
+.roadmap{
+    margin-top:70px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.road{
+    padding:35px 25px;
+    border:1px solid var(--border);
+    min-height:220px;
+    border-radius:20px;
+    background:rgba(255,255,255,.02);
+}
+
+.road small{
+    color:var(--blue);
+}
+
+.road h3{
+    font-family:"Space Grotesk";
+    font-size:25px;
+    margin:20px 0;
+}
+
+.road p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.7;
+}
+
+/* CONTACT */
+
+.contact{
+    text-align:center;
+    padding-bottom:170px;
+}
+
+.contact h2{
+    font-family:"Space Grotesk";
+    font-size:clamp(50px,9vw,110px);
+    letter-spacing:-5px;
+}
+
+.contact p{
+    color:var(--muted);
+    margin:25px auto;
+    max-width:500px;
+    line-height:1.8;
+}
+
+.socials{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
+
+/* TICKER */
+
+.ticker{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    z-index:999;
+    background:rgba(5,8,16,.88);
+    backdrop-filter:blur(15px);
+    border-top:1px solid var(--border);
+    padding:9px 20px;
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    color:#768397;
+    font-size:9px;
+    letter-spacing:1.5px;
+}
+
+.ticker strong{
+    color:#b9c4d4;
+}
+
+/* MODAL */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.75);
+    backdrop-filter:blur(12px);
+    z-index:2000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-box{
+    width:min(750px,100%);
+    max-height:85vh;
+    overflow:auto;
+    background:#0a111e;
+    border:1px solid var(--border);
+    border-radius:25px;
+    padding:35px;
+    position:relative;
+}
+
+.modal-close{
+    position:absolute;
+    right:20px;
+    top:18px;
+    border:0;
+    background:none;
+    color:white;
+    font-size:24px;
+    cursor:pointer;
+}
+
+.modal-box h2{
+    font-family:"Space Grotesk";
+    font-size:35px;
+    margin-bottom:15px;
+}
+
+.modal-box p{
+    color:var(--muted);
+    line-height:1.8;
+}
+
+.modal-list{
+    margin-top:25px;
+    display:grid;
+    gap:8px;
+}
+
+.modal-list div{
+    padding:12px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    color:#b9c4d4;
+    font-size:13px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:70px;
+        left:4%;
+        right:4%;
+        background:#090f1a;
+        border:1px solid var(--border);
+        border-radius:18px;
+        padding:20px;
+        flex-direction:column;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .network{
+        opacity:.18;
+        right:-300px;
+    }
+
+    .identity,
+    .crm{
+        grid-template-columns:1fr;
+    }
+
+    .timeline::before{
+        display:none;
+    }
+
+    .timeline-items{
+        display:grid;
+        gap:30px;
+    }
+
+    .timeline-item{
+        width:100%;
+        display:grid;
+        grid-template-columns:50px 1fr;
+        gap:15px;
+    }
+
+    .timeline-dot{
+        margin:0;
+        margin-top:5px;
+    }
+
+    .work-grid,
+    .project-grid{
+        grid-template-columns:1fr;
+    }
+
+    .numbers-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .roadmap{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .gallery{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+
+    section{
+        padding:85px 0;
+    }
+
+    .hero h1{
+        letter-spacing:-4px;
+    }
+
+    .hero-data{
+        gap:20px;
+    }
+
+    .dna{
+        grid-template-columns:1fr;
+    }
+
+    .numbers-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .number-card strong{
+        font-size:36px;
+    }
+
+    .roadmap{
+        grid-template-columns:1fr;
+    }
+
+    .gallery{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .gallery-item,
+    .gallery-item:nth-child(2),
+    .gallery-item:nth-child(3){
+        height:180px;
+    }
+
+    .crm-body{
+        grid-template-columns:85px 1fr;
+    }
+
+    .kpi-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .ticker{
+        gap:12px;
+        overflow:hidden;
+        justify-content:flex-start;
+        white-space:nowrap;
+    }
+
+    .ticker span:nth-child(n+4){
+        display:none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+
+        <a href="#home" class="logo">
+            HARSHIT<span>.OS</span>
+        </a>
+
+        <button class="menu-btn" id="menuBtn">☰</button>
+
+        <div class="nav-links" id="navLinks">
+            <a href="#about">ABOUT</a>
+            <a href="#journey">JOURNEY</a>
+            <a href="#work">WORK</a>
+            <a href="#projects">PROJECTS</a>
+            <a href="#radar">RADAR</a>
+            <a href="#gallery">GALLERY</a>
+            <a href="#contact">CONTACT</a>
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+    <div class="network">
+        <div class="node"></div>
+        <div class="node"></div>
+        <div class="node"></div>
+        <div class="node"></div>
+        <div class="node"></div>
+        <div class="node"></div>
+
+        <div class="line line1"></div>
+        <div class="line line2"></div>
+        <div class="line line3"></div>
+        <div class="line line4"></div>
+    </div>
+
+    <div class="container hero-content">
+
+        <div class="status">
+            <span class="status-dot"></span>
+            HARSHIT // ONLINE
+        </div>
+
+        <h1>HARSHIT<span>.</span></h1>
+
+        <div class="hero-tagline">
+            Finance <strong>×</strong> Business <strong>×</strong>
+            Analytics <strong>×</strong> Technology
+        </div>
+
+        <div class="hero-buttons">
+            <a class="btn btn-primary" href="#about">ENTER MY WORLD →</a>
+            <a class="btn" href="#projects">VIEW MY WORK</a>
+            <button class="btn" onclick="window.print()">DOWNLOAD CV ↓</button>
+        </div>
+
+        <div class="hero-data">
+
+            <div class="data-item">
+                <small>Currently</small>
+                <strong>MBA 2025–27</strong>
+            </div>
+
+            <div class="data-item">
+                <small>Focus</small>
+                <strong>Financial Markets</strong>
+            </div>
+
+            <div class="data-item">
+                <small>Building</small>
+                <strong>GLA Alumni CRM</strong>
+            </div>
+
+            <div class="data-item">
+                <small>Status</small>
+                <strong>Exploring</strong>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ABOUT -->
+<section id="about">
+
+<div class="container">
+
+    <div class="section-label">01 — Identity</div>
+
+    <div class="identity">
+
+        <div class="profile-photo">
+            <div class="profile-ring"></div>
+        </div>
+
+        <div class="identity-text">
+
+            <h2 class="section-title">Who am I?</h2>
+
+            <p>
+                I'm Harshit Kumar Gupta — an MBA candidate in Financial
+                Markets & Banking with experience across financial advisory,
+                insurance, business analysis, compliance, analytics and
+                technology-driven projects.
+            </p>
+
+            <div class="identity-tags">
+                <span class="tag">FINANCE</span>
+                <span class="tag">BANKING</span>
+                <span class="tag">ANALYTICS</span>
+                <span class="tag">BUSINESS</span>
+                <span class="tag">TECHNOLOGY</span>
+                <span class="tag">STRATEGY</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div style="margin-top:120px">
+
+        <div class="section-label">My DNA</div>
+
+        <h2 class="section-title">The things<br>that make me.</h2>
+
+        <div class="dna">
+
+            <div class="card dna-card" onclick="openModal('Finance')">
+                <div class="icon">◈</div>
+                <h3>Finance</h3>
+                <p>
+                    Financial Markets, Banking, Investment,
+                    Insurance, Risk and Corporate Finance.
+                </p>
+            </div>
+
+            <div class="card dna-card" onclick="openModal('Business')">
+                <div class="icon">◇</div>
+                <h3>Business</h3>
+                <p>
+                    Strategy, market research, client management,
+                    consulting and structured decision-making.
+                </p>
+            </div>
+
+            <div class="card dna-card" onclick="openModal('Analytics')">
+                <div class="icon">▦</div>
+                <h3>Analytics</h3>
+                <p>
+                    Excel, Power BI, dashboards, business research
+                    and data-driven decisions.
+                </p>
+            </div>
+
+            <div class="card dna-card" onclick="openModal('Technology')">
+                <div class="icon">⌘</div>
+                <h3>Technology</h3>
+                <p>
+                    CRM systems, Supabase, authentication,
+                    role-based access, CRUD and web applications.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- JOURNEY -->
+<section id="journey">
+
+<div class="container">
+
+    <div class="section-label">02 — Journey</div>
+
+    <h2 class="section-title">Still becoming.</h2>
+
+    <p class="section-subtitle">
+        A timeline of the experiences that have shaped the person
+        and professional I am becoming.
+    </p>
+
+    <div class="timeline">
+
+        <div class="timeline-items">
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div>
+                    <h3>2022</h3>
+                    <p>Started professional journey.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div>
+                    <h3>2023</h3>
+                    <p>Insurance and client-facing experience.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div>
+                    <h3>2025</h3>
+                    <p>Completed Bachelor of Commerce.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div>
+                    <h3>2026</h3>
+                    <p>Itron India internship in business analysis and compliance.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div>
+                    <h3>2025–27</h3>
+                    <p>MBA in Financial Markets & Banking.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:70px;color:var(--muted)">
+        <em>“The next chapter hasn't been written yet.”</em>
+    </div>
+
+</div>
+</section>
+
+
+<!-- WHAT I DO -->
+<section id="work">
+
+<div class="container">
+
+    <div class="section-label">03 — Capabilities</div>
+
+    <h2 class="section-title">What I do.</h2>
+
+    <div class="work-grid">
+
+        <div class="card work-card">
+            <div class="work-icon">₹</div>
+            <h3>Finance</h3>
+            <p>
+                Financial Analysis · Financial Markets · Banking ·
+                Investment · Insurance · Risk
+            </p>
+        </div>
+
+        <div class="card work-card">
+            <div class="work-icon">◫</div>
+            <h3>Business</h3>
+            <p>
+                Strategy · Business Research · Market Research ·
+                Client Management · Consulting
+            </p>
+        </div>
+
+        <div class="card work-card">
+            <div class="work-icon">▥</div>
+            <h3>Analytics</h3>
+            <p>
+                Microsoft Excel · Power BI · Dashboards ·
+                Data Analysis · Decision Making
+            </p>
+        </div>
+
+        <div class="card work-card">
+            <div class="work-icon">⌘</div>
+            <h3>Technology</h3>
+            <p>
+                CRM · Supabase · Authentication · RBAC · CRUD ·
+                Excel Import/Export · Web Applications
+            </p>
+        </div>
+
+    </div>
+
+
+    <!-- CRM -->
+    <div style="margin-top:140px">
+
+        <div class="section-label">Featured Build</div>
+
+        <div class="crm">
+
+            <div class="crm-preview">
+
+                <div class="crm-top">
+                    <span class="crm-dot"></span>
+                    <span class="crm-dot"></span>
+                    <span class="crm-dot"></span>
+                    <span style="margin-left:10px;color:#6f7d92;font-size:10px">
+                        GLA ALUMNI CRM
+                    </span>
+                </div>
+
+                <div class="crm-body">
+
+                    <div class="crm-sidebar">
+                        <div>Dashboard</div>
+                        <div>Alumni</div>
+                        <div>Students</div>
+                        <div>Companies</div>
+                        <div>Opportunities</div>
+                        <div>Mentorship</div>
+                        <div>Follow-ups</div>
+                    </div>
+
+                    <div class="crm-main">
+
+                        <div class="crm-title">
+                            Alumni Engagement
+                        </div>
+
+                        <div class="kpi-grid">
+
+                            <div class="kpi">
+                                <small>ALUMNI</small>
+                                <strong>1,240</strong>
+                            </div>
+
+                            <div class="kpi">
+                                <small>STUDENTS</small>
+                                <strong>860</strong>
+                            </div>
+
+                            <div class="kpi">
+                                <small>COMPANIES</small>
+                                <strong>126</strong>
+                            </div>
+
+                        </div>
+
+                        <div class="chart">
+
+                            <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+                                <polyline
+                                    points="0,120 50,105 100,110 150,70 200,82 250,50 300,63 350,35 400,48 450,20 500,30"
+                                    fill="none"
+                                    stroke="#4da3ff"
+                                    stroke-width="3"
+                                />
+                            </svg>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <div class="section-label">Product / CRM</div>
+
+                <h2 class="section-title">
+                    GLA Alumni<br>Engagement CRM
+                </h2>
+
+                <p class="section-subtitle">
+                    A centralized CRM designed to manage alumni,
+                    students, companies, opportunities, mentorships
+                    and follow-ups.
+                </p>
+
+                <div class="project-tags">
+
+                    <span>SUPABASE</span>
+                    <span>AUTHENTICATION</span>
+                    <span>RBAC</span>
+                    <span>CRUD</span>
+                    <span>EXCEL</span>
+                    <span>DASHBOARD</span>
+
+                </div>
+
+                <button
+                    class="btn btn-primary"
+                    style="margin-top:25px"
+                    onclick="openModal('CRM')"
+                >
+                    EXPLORE PROJECT →
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- NUMBERS -->
+<section>
+
+<div class="container">
+
+    <div class="section-label">04 — Evidence</div>
+
+    <h2 class="section-title">My numbers.</h2>
+
+    <div class="numbers-grid">
+
+        <div class="card number-card">
+            <strong data-count="80">0+</strong>
+            <span>Clients advised</span>
+        </div>
+
+        <div class="card number-card">
+            <strong data-count="90">0%</strong>
+            <span>Client retention</span>
+        </div>
+
+        <div class="card number-card">
+            <strong data-count="60">0%</strong>
+            <span>Conversion</span>
+        </div>
+
+        <div class="card number-card">
+            <strong data-count="26">0%</strong>
+            <span>YoY growth</span>
+        </div>
+
+        <div class="card number-card">
+            <strong>7.95</strong>
+            <span>B.Com CGPA</span>
+        </div>
+
+        <div class="card number-card">
+            <strong>7.1</strong>
+            <span>MBA CGPA</span>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- RADAR -->
+<section id="radar">
+
+<div class="container">
+
+    <div class="section-label">05 — Current Radar</div>
+
+    <h2 class="section-title">What I'm watching.</h2>
+
+    <p class="section-subtitle">
+        The ideas, industries and technologies currently sitting
+        on my radar.
+    </p>
+
+    <div class="radar-wrap">
+
+        <div class="radar">
+
+            <div class="radar-sweep"></div>
+
+            <div class="radar-node r1" onclick="openModal('AI × Finance')">
+                AI × FINANCE
+            </div>
+
+            <div class="radar-node r2" onclick="openModal('Banking')">
+                BANKING
+            </div>
+
+            <div class="radar-node r3" onclick="openModal('FinTech')">
+                FINTECH
+            </div>
+
+            <div class="radar-node r4" onclick="openModal('Markets')">
+                FINANCIAL MARKETS
+            </div>
+
+            <div class="radar-node r5" onclick="openModal('Analytics')">
+                BUSINESS ANALYTICS
+            </div>
+
+            <div class="radar-node r6" onclick="openModal('Consulting')">
+                CONSULTING
+            </div>
+
+            <div class="radar-node r7" onclick="openModal('Startups')">
+                STARTUPS
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- LEARNING -->
+<section>
+
+<div class="container">
+
+    <div class="section-label">06 — Learning</div>
+
+    <h2 class="section-title">Currently loading...</h2>
+
+    <div class="learning">
+
+        <div class="learning-row">
+            <div class="learning-top">
+                <span>Financial Markets</span>
+                <span>82%</span>
+            </div>
+            <div class="progress"><span data-width="82%"></span></div>
+        </div>
+
+        <div class="learning-row">
+            <div class="learning-top">
+                <span>Power BI</span>
+                <span>74%</span>
+            </div>
+            <div class="progress"><span data-width="74%"></span></div>
+        </div>
+
+        <div class="learning-row">
+            <div class="learning-top">
+                <span>AI for Business</span>
+                <span>61%</span>
+            </div>
+            <div class="progress"><span data-width="61%"></span></div>
+        </div>
+
+        <div class="learning-row">
+            <div class="learning-top">
+                <span>Web Development</span>
+                <span>58%</span>
+            </div>
+            <div class="progress"><span data-width="58%"></span></div>
+        </div>
+
+        <div class="learning-row">
+            <div class="learning-top">
+                <span>Investment Analysis</span>
+                <span>60%</span>
+            </div>
+            <div class="progress"><span data-width="60%"></span></div>
+        </div>
+
+    </div>
+
+    <div style="margin-top:25px;color:var(--muted);font-size:13px">
+        NEXT UP →
+        <strong style="color:white">Advanced Financial Modelling</strong>
+    </div>
+
+</div>
+</section>
+
+
+<!-- PROJECTS -->
+<section id="projects">
+
+<div class="container">
+
+    <div class="section-label">07 — Work</div>
+
+    <h2 class="section-title">Experiments & projects.</h2>
+
+    <div class="project-grid">
+
+        <div class="card project-card">
+            <div class="section-label">CRM / PRODUCT</div>
+            <h3>GLA Alumni Engagement CRM</h3>
+            <p>
+                Centralized system for alumni, students,
+                companies, opportunities, mentorship and follow-ups.
+            </p>
+            <div class="project-tags">
+                <span>SUPABASE</span>
+                <span>RBAC</span>
+                <span>CRUD</span>
+                <span>EXCEL</span>
+            </div>
+        </div>
+
+        <div class="card project-card">
+            <div class="section-label">SIMULATION</div>
+            <h3>CESIM Business Simulation</h3>
+            <p>
+                Analyzed financial statements, market trends and
+                business performance to make strategic decisions.
+            </p>
+            <div class="project-tags">
+                <span>STRATEGY</span>
+                <span>FINANCE</span>
+                <span>ANALYTICS</span>
+            </div>
+        </div>
+
+        <div class="card project-card">
+            <div class="section-label">RISK</div>
+            <h3>Goldman Sachs Risk Job Simulation</h3>
+            <p>
+                Evaluated client risk profiles and real estate
+                investment opportunities using structured risk assessment.
+            </p>
+            <div class="project-tags">
+                <span>RISK</span>
+                <span>INVESTMENT</span>
+                <span>ANALYSIS</span>
+            </div>
+        </div>
+
+        <div class="card project-card">
+            <div class="section-label">INTERNSHIP</div>
+            <h3>Itron India</h3>
+            <p>
+                Business data analysis, compliance reporting,
+                industry research, documentation and cross-functional work.
+            </p>
+            <div class="project-tags">
+                <span>BUSINESS ANALYSIS</span>
+                <span>COMPLIANCE</span>
+                <span>RESEARCH</span>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- GALLERY -->
+<section id="gallery">
+
+<div class="container">
+
+    <div class="section-label">08 — Life</div>
+
+    <h2 class="section-title">Behind the resume.</h2>
+
+    <p class="section-subtitle">
+        The professional journey is only one part of the story.
+        Add your real college, internship, project and event
+        photographs here.
+    </p>
+
+    <div class="gallery">
+
+        <div class="gallery-item">ADD PHOTO — COLLEGE</div>
+        <div class="gallery-item">ADD PHOTO — INTERNSHIP</div>
+        <div class="gallery-item">ADD PHOTO — PROJECT</div>
+        <div class="gallery-item">ADD PHOTO — EVENT</div>
+        <div class="gallery-item">ADD PHOTO — TEAM</div>
+        <div class="gallery-item">ADD PHOTO — PRESENTATION</div>
+        <div class="gallery-item">ADD PHOTO — ACHIEVEMENT</div>
+        <div class="gallery-item">ADD PHOTO — MOMENT</div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- FUTURE -->
+<section>
+
+<div class="container">
+
+    <div class="section-label">09 — Direction</div>
+
+    <h2 class="section-title">Where I'm going.</h2>
+
+    <div class="roadmap">
+
+        <div class="road">
+            <small>2026</small>
+            <h3>Learn.</h3>
+            <p>
+                MBA, finance, analytics, technology and practical
+                business experience.
+            </p>
+        </div>
+
+        <div class="road">
+            <small>2027</small>
+            <h3>Launch.</h3>
+            <p>
+                Step into the professional world and turn knowledge
+                into measurable impact.
+            </p>
+        </div>
+
+        <div class="road">
+            <small>2030</small>
+            <h3>Build.</h3>
+            <p>
+                Products, systems, businesses and ideas that solve
+                real problems.
+            </p>
+        </div>
+
+        <div class="road">
+            <small>2035</small>
+            <h3>?</h3>
+            <p>
+                The destination isn't fixed. That's part of the journey.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+<div class="container">
+
+    <div class="section-label">10 — Connect</div>
+
+    <h2>Let's build<br>something.</h2>
+
+    <p>
+        Finance, business, technology, analytics or simply an
+        interesting conversation — I'm open to possibilities.
+    </p>
+
+    <div class="socials">
+
+        <a
+            class="btn btn-primary"
+            href="mailto:harshitgupta.finance@gmail.com"
+        >
+            EMAIL ME
+        </a>
+
+        <a
+            class="btn"
+            href="https://www.linkedin.com/in/harshitgupta-finance"
+            target="_blank"
+        >
+            LINKEDIN ↗
+        </a>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- TICKER -->
+<div class="ticker">
+
+    <span>● <strong>HARSHIT // ONLINE</strong></span>
+    <span>CURRENTLY: <strong>MBA</strong></span>
+    <span>BUILDING: <strong>GLA CRM</strong></span>
+    <span>LEARNING: <strong>FINANCE + TECH</strong></span>
+    <span>WATCHING: <strong>AI × FINANCE</strong></span>
+
+</div>
+
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+
+    <div class="modal-box">
+
+        <button class="modal-close" onclick="closeModal()">×</button>
+
+        <h2 id="modalTitle">Details</h2>
+
+        <p id="modalText"></p>
+
+        <div class="modal-list" id="modalList"></div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* NAV */
+
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 30){
+        navbar.classList.add("scrolled");
+    }else{
+        navbar.classList.remove("scrolled");
+    }
+
+});
+
+
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+    });
+
+});
+
+
+/* NUMBER COUNTERS */
+
+const counters = document.querySelectorAll("[data-count]");
+
+const counterObserver = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if(!entry.isIntersecting) return;
+
+        const element = entry.target;
+        const target = Number(element.dataset.count);
+
+        let current = 0;
+        const increment = Math.max(1, target / 50);
+
+        const update = () => {
+
+            current += increment;
+
+            if(current >= target){
+                current = target;
+            }
+
+            const suffix =
+                element.textContent.includes("%") ? "%" : "+";
+
+            element.textContent =
+                Math.floor(current) + suffix;
+
+            if(current < target){
+                requestAnimationFrame(update);
+            }
+
+        };
+
+        update();
+
+        counterObserver.unobserve(element);
+
+    });
+
+},{threshold:.5});
+
+counters.forEach(counter => counterObserver.observe(counter));
+
+
+/* LEARNING BARS */
+
+const progressBars = document.querySelectorAll(".progress span");
+
+const progressObserver = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if(!entry.isIntersecting) return;
+
+        entry.target.style.width =
+            entry.target.dataset.width;
+
+        progressObserver.unobserve(entry.target);
+
+    });
+
+},{threshold:.4});
+
+progressBars.forEach(bar => progressObserver.observe(bar));
+
+
+/* MODALS */
+
+const modalData = {
+
+    Finance:{
+        text:"Finance is one of the core pillars of my professional identity.",
+        items:[
+            "Financial Markets",
+            "Banking",
+            "Investment",
+            "Insurance",
+            "Risk Assessment",
+            "Corporate Finance"
+        ]
+    },
+
+    Business:{
+        text:"I enjoy understanding how businesses work, make decisions and create value.",
+        items:[
+            "Business Research",
+            "Market Research",
+            "Strategy",
+            "Client Management",
+            "Consulting",
+            "Structured Problem Solving"
+        ]
+    },
+
+    Analytics:{
+        text:"I use data to understand problems and support better decisions.",
+        items:[
+            "Microsoft Excel",
+            "Power BI",
+            "Dashboard Building",
+            "Data Analysis",
+            "Business Analytics"
+        ]
+    },
+
+    Technology:{
+        text:"Technology is becoming an increasingly important part of what I build.",
+        items:[
+            "CRM Systems",
+            "Supabase",
+            "Authentication",
+            "Role-Based Access",
+            "CRUD Operations",
+            "Excel Import / Export",
+            "Web Applications"
+        ]
+    },
+
+    CRM:{
+        text:"A centralized CRM created to manage alumni, students, companies, opportunities, mentorships and follow-ups.",
+        items:[
+            "Supabase database",
+            "Authentication",
+            "Role-based access",
+            "CRUD operations",
+            "Excel import/export",
+            "Search and filtering",
+            "Interactive dashboard",
+            "GitHub Pages deployment"
+        ]
+    },
+
+    "AI × Finance":{
+        text:"Exploring the intersection between artificial intelligence and financial decision-making.",
+        items:["AI in Finance","Automation","Data-driven Decisions"]
+    },
+
+    Banking:{
+        text:"Following developments in banking and financial services.",
+        items:["Banking","Financial Services","Digital Transformation"]
+    },
+
+    FinTech:{
+        text:"Exploring how technology is changing financial products and services.",
+        items:["FinTech","Digital Finance","Financial Innovation"]
+    },
+
+    Markets:{
+        text:"Financial markets remain a core area of learning and observation.",
+        items:["Markets","Investment","Economic Trends"]
+    },
+
+    Consulting:{
+        text:"Interested in structured problem-solving and business strategy.",
+        items:["Strategy","Problem Solving","Business Analysis"]
+    },
+
+    Startups:{
+        text:"Interested in businesses solving meaningful real-world problems.",
+        items:["Business Models","Innovation","Growth"]
+    }
+
+};
+
+
+function openModal(name){
+
+    const data = modalData[name] || {
+        text:"This section is part of the Harshit OS.",
+        items:["Coming soon"]
+    };
+
+    document.getElementById("modalTitle").textContent = name;
+
+    document.getElementById("modalText").textContent =
+        data.text;
+
+    document.getElementById("modalList").innerHTML =
+        data.items
+        .map(item => `<div>${item}</div>`)
+        .join("");
+
+    document.getElementById("modal").classList.add("active");
+
+}
+
+
+function closeModal(){
+    document.getElementById("modal").classList.remove("active");
+}
+
+
+document.getElementById("modal").addEventListener("click", e => {
+
+    if(e.target.id === "modal"){
+        closeModal();
+    }
+
+});
+
+
+/* ESCAPE */
+
+document.addEventListener("keydown", e => {
+
+    if(e.key === "Escape"){
+        closeModal();
+    }
+
+});
+
+
+/* CURSOR PARALLAX */
+
+const network = document.querySelector(".network");
+
+document.addEventListener("mousemove", e => {
+
+    if(window.innerWidth < 900) return;
+
+    const x = (e.clientX / window.innerWidth - .5) * 20;
+    const y = (e.clientY / window.innerHeight - .5) * 20;
+
+    network.style.transform =
+        `translate(${x}px,calc(-50% + ${y}px))`;
+
+});
+
+
+/* REVEAL ANIMATION */
+
+const revealElements = document.querySelectorAll(
+    ".card,.section-title,.section-subtitle,.timeline-item,.road,.gallery-item"
+);
+
+revealElements.forEach(el => {
+
+    el.style.opacity = "0";
+    el.style.transform = "translateY(25px)";
+    el.style.transition =
+        "opacity .7s ease, transform .7s ease";
+
+});
+
+
+const revealObserver = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if(!entry.isIntersecting) return;
+
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+
+        revealObserver.unobserve(entry.target);
+
+    });
+
+},{threshold:.12});
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+</script>
+
+</body>
+</html>
